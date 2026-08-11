@@ -1,13 +1,6 @@
-LSAS Maakni — boutique connectée à Supabase
+1. Dans Supabase > SQL Editor, exécute admin_security.sql.
+2. Ouvre admin.html avec Live Server.
+3. Les commandes de la date choisie apparaissent.
+4. Tu peux rechercher et modifier leur statut.
 
-1) Ouvre Supabase > SQL Editor.
-2) Copie tout le contenu de supabase_security.sql et clique Run.
-3) Ouvre index.html avec Live Server.
-4) Fais une commande test.
-5) Dans Supabase > Table Editor > orders, vérifie qu'une ligne apparaît.
-
-La commande ne part pas sur WhatsApp. Elle est enregistrée dans orders.
-
-La Publishable key est prévue pour être utilisée côté navigateur. Ne mets jamais une Secret/service_role key dans script.js.
-
-Après cette étape, on pourra ajouter l'espace administrateur et les notifications quotidiennes de 08:00.
+IMPORTANT : cette policy est pratique pour tester, mais elle n'est pas sécurisée pour une boutique publique. Avant la mise en ligne définitive, on mettra Supabase Auth + RLS pour que seul ton compte admin puisse lire/modifier les commandes.
