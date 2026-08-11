@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LSAS Maakni — Boutique</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="logo" href="#accueil">LSAS <span>Maakni</span></a>
+  <nav><a href="#accueil">Accueil</a><a href="#boutique">Boutique</a></nav>
+  <button class="cartButton" onclick="openCart()">Panier <b id="cartCount">0</b></button>
+</header>
+
+<section id="accueil" class="hero">
+  <div>
+    <p class="eyebrow">ARTISANAT • TRADITION • ÉLÉGANCE</p>
+    <h1>Des pièces qui racontent <i>notre histoire.</i></h1>
+    <p>Découvrez nos créations et commandez directement en ligne.</p>
+    <a class="primary" href="#boutique">Voir la boutique</a>
+  </div>
+</section>
+
+<section id="boutique" class="shop">
+  <div class="intro">
+    <div><p class="eyebrow">NOTRE COLLECTION</p><h2>La boutique</h2></div>
+    <p>Choisissez vos articles, leurs quantités et votre mode de livraison.</p>
+  </div>
+  <div class="products">
+    <article class="product">
+      <div class="photo"><img src="sac-vert.jpeg" alt="Sac traditionnel vert"></div>
+      <div class="body"><small>NOUVEAUTÉ</small><h3>Sac traditionnel vert</h3><p>Sac élégant inspiré du patrimoine traditionnel.</p>
+      <div class="row"><strong>2 300 DA</strong><div class="actions"><div class="qty"><button onclick="changeQty('q1',-1)">−</button><span id="q1">1</span><button onclick="changeQty('q1',1)">+</button></div><button class="add" onclick="addProduct('Sac traditionnel vert',2300,'q1')">Ajouter</button></div></div></div>
+    </article>
+    <article class="product">
+      <div class="photo"><img src="coffret-blanc.jpeg" alt="Coffret décoratif"></div>
+      <div class="body"><small>ARTISANAT</small><h3>Coffret décoratif</h3><p>Petit coffret décoratif aux motifs traditionnels.</p>
+      <div class="row"><strong>500 DA</strong><div class="actions"><div class="qty"><button onclick="changeQty('q2',-1)">−</button><span id="q2">1</span><button onclick="changeQty('q2',1)">+</button></div><button class="add" onclick="addProduct('Coffret décoratif',500,'q2')">Ajouter</button></div></div></div>
+    </article>
+    <article class="product">
+      <div class="photo"><img src="pot-traditionnel.jpeg" alt="Pot traditionnel"></div>
+      <div class="body"><small>TRADITION</small><h3>Pot traditionnel</h3><p>Pièce décorative aux motifs colorés.</p>
+      <div class="row"><strong>900 DA</strong><div class="actions"><div class="qty"><button onclick="changeQty('q3',-1)">−</button><span id="q3">1</span><button onclick="changeQty('q3',1)">+</button></div><button class="add" onclick="addProduct('Pot traditionnel',900,'q3')">Ajouter</button></div></div></div>
+    </article>
+  </div>
+</section>
+
+<div id="overlay" class="overlay" onclick="closeCart()"></div>
+<aside id="cart" class="cart">
+  <div class="cartHead"><div><p class="eyebrow">VOTRE COMMANDE</p><h2>Panier</h2></div><button class="close" onclick="closeCart()">×</button></div>
+  <div id="cartItems" class="cartItems"></div>
+
+  <div class="checkout">
+    <h3>Informations de livraison</h3>
+    <label>Wilaya</label>
+    <select id="wilaya" onchange="loadCommunes()"><option value="">Chargement des wilayas...</option></select>
+    <label>Commune</label>
+    <select id="commune" disabled><option>Choisir d'abord une wilaya</option></select>
+
+    <label>Mode de livraison</label>
+    <div class="delivery">
+      <label><input type="radio" name="delivery" value="550" onchange="updateTotals()"> 🏢 Bureau <b>550 DA</b></label>
+      <label><input type="radio" name="delivery" value="900" onchange="updateTotals()"> 🏠 Domicile <b>900 DA</b></label>
+    </div>
+
+    <label>Nom et prénom</label>
+    <input id="name" placeholder="Votre nom et prénom">
+    <label>Téléphone</label>
+    <input id="phone" type="tel" placeholder="05 / 06 / 07...">
+    <label>Adresse</label>
+    <textarea id="address" rows="2" placeholder="Obligatoire à domicile"></textarea>
+
+    <div class="totals">
+      <div><span>Sous-total</span><b id="subtotal">0 DA</b></div>
+      <div><span>Livraison</span><b id="shipping">À choisir</b></div>
+      <div class="total"><span>Total</span><b id="total">0 DA</b></div>
+    </div>
+    <button id="orderBtn" class="order" onclick="saveOrder()">Confirmer la commande</button>
+    <p class="note">Votre commande est enregistrée sur notre boutique. Aucun message WhatsApp n'est envoyé.</p>
+  </div>
+</aside>
+
+<footer><span class="logo">LSAS <em>Maakni</em></span><span>© 2026</span></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
