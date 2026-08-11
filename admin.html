@@ -1,7 +1,0 @@
-<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LSAS Maakni — Admin</title><link rel="stylesheet" href="admin.css"></head><body>
-<header><div class="brand">LSAS <span>Maakni</span><small>ADMIN</small></div><button onclick="loadOrders()">↻ Actualiser</button></header>
-<main><section class="top"><div><p>TABLEAU DE BORD</p><h1>Commandes</h1><div class="muted">Commandes enregistrées dans Supabase.</div></div><input id="dateFilter" type="date" onchange="loadOrders()"></section>
-<section class="stats"><div><span>Commandes</span><b id="n">0</b></div><div><span>Chiffre d'affaires</span><b id="r">0 DA</b></div><div><span>Domicile</span><b id="h">0</b></div><div><span>Bureau</span><b id="o">0</b></div></section>
-<section class="tools"><input id="search" placeholder="Rechercher..." oninput="render()"><select id="statusFilter" onchange="render()"><option value="">Tous les statuts</option><option>nouvelle</option><option>confirmée</option><option>expédiée</option><option>livrée</option><option>annulée</option></select></section>
-<div id="msg"></div><section id="orders"></section></main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="admin.js"></script></body></html>
