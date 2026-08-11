@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LSAS Maakni — Administration</title>
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<header class="header">
+  <div>
+    <h1>LSAS <span>Maakni</span></h1>
+    <p>Tableau de bord administrateur</p>
+  </div>
+  <button id="refreshBtn">↻ Actualiser</button>
+</header>
+
+<main>
+  <section class="top">
+    <div>
+      <small>GESTION DES COMMANDES</small>
+      <h2>Commandes</h2>
+      <p id="statusMessage">Chargement...</p>
+    </div>
+    <div class="date-box">
+      <label>Date</label>
+      <input type="date" id="dateFilter">
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="stat"><small>COMMANDES</small><strong id="ordersCount">0</strong></div>
+    <div class="stat"><small>CHIFFRE D'AFFAIRES</small><strong id="totalRevenue">0 DA</strong></div>
+    <div class="stat"><small>DOMICILE</small><strong id="homeCount">0</strong></div>
+    <div class="stat"><small>BUREAU</small><strong id="officeCount">0</strong></div>
+  </section>
+
+  <section class="filters">
+    <input type="text" id="search" placeholder="Rechercher un client, téléphone...">
+    <select id="statusFilter">
+      <option value="">Tous les statuts</option>
+      <option value="nouvelle">Nouvelle</option>
+      <option value="confirmée">Confirmée</option>
+      <option value="expédiée">Expédiée</option>
+      <option value="livrée">Livrée</option>
+      <option value="annulée">Annulée</option>
+    </select>
+  </section>
+
+  <section id="orders">
+    <div class="loading">Chargement des commandes...</div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="admin.js"></script>
+</body>
+</html>
